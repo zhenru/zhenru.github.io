@@ -1,61 +1,18 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>muzhe的个人BLOG by zhenru</title>
+---
+layout: default
+---
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-</head>
-<body>
-<div class="wrapper">
-    <header>
-        <h1>muzhe的个人BLOG</h1>
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
 
-        <p> 一切都源于时间 </p>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
 
-        <p class="view"><a href="https://github.com/zhenru">View My GitHub Profile</a></p>
-
-    </header>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-
-    <br>
-    <br>
-    <br>
-
-    <p>
-        <small> &mdash; Theme by <a href="http://zhenru.github.io/"><b>github</b></a>
-        </small>
-    </p>
-
-    <a href="https://www.baidu.com/"> baidu </a>
-    <a href="../myBlogs/helloworld.html"><h1>hello world </h1></a><br>
-    <a href="../myBlogs/cesi.html"><h1>hello world </h1></a>
-
-
-
-    <footer>
-        <p>
-            <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>
-            </small>
-        </p>
-    </footer>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
 </div>
-<script src="javascripts/scale.fix.js"></script>
-
-</body>
-</html>
