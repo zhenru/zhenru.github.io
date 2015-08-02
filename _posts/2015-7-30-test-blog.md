@@ -3,7 +3,7 @@ layout: post
 title: this is the second time test
 ---
 
-你还好吗．这是一个测试的页面也许很快你就不存在了．
+曾经惆怅的回顾，曾经辛酸的祝福，都在友情岁月了写下一页永恒的故事．
 
 ![muzhe]({{ site.baseurl}}/images/a.png)
 
