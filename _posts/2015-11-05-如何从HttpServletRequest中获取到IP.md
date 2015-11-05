@@ -2,7 +2,7 @@
 layout: post
 title: 如何从HttpServletRequest中获取到IP地址
 ---
-###如何从HttpServletRequest中获取到IP地址
+
 
 获取ip地址的时候可以直接通过`getRemoteAddr()`获取到用户的ip地址，事情并不这样简单。
 很多的时候用户的HttpServletRequest并不能直接传递到最终执行业务的服务器，而`getRemoteAddr()`方法只能获取到到达当前的机器的请求的IP地址。
