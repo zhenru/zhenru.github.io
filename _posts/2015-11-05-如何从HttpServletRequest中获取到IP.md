@@ -7,7 +7,7 @@ title: 如何从HttpServletRequest中获取到IP地址
 获取ip地址的时候可以直接通过`getRemoteAddr()`获取到用户的ip地址，事情并不这样简单。
 很多的时候用户的HttpServletRequest并不能直接传递到最终执行业务的服务器，而`getRemoteAddr()`方法只能获取到到达当前的机器的请求的IP地址。
 如果服务器是单台机器，用户的请求直接发送到服务器上的时候，此时使用`getRemoteAddr()`获取到的IP地址就是用户的IP地址，很多时候服务器并不是一台机器，往往是一个集群。前端由一台机器负责接受各种用户传递过来的请求，然后将当前的请求转发到相对应的机器上。如果服务器上使用`getRemoteAddr()`获取到的IP地址是前端负责分发的机器的IP地址，这时候使用`getRemoteAddr()`方法就没有办法获取用户的地址。使用了一种解决方法：在HTTP的请求报文头中添加一个字段，将用户的请求的IP地址记录在里面，然后转发到后端的服务器上，后端的服务器上只要先跟据请求的报文头中的值获取到IP地址的值。这些报文头的字段对于不同的服务器的架构会使用不同的字段。可能包括的字段有：
-```
+```javascript
 X-FORWARDED-FOR
 Proxy-Client-IP
 WL-Proxy-Client-IP
@@ -15,7 +15,7 @@ HTTP_CLIENT_IP
 
 ```
 存在多种的网络架构，如Nginx+Resin , Apache+WebLogic，Squid+Nginx等，在这些不同的网络架构中，作为前端的服务器会使用不同的报文头字段来传递这个信息。以下就简单描述一下：
-```
+```javascript
 其中使用nginx作为前端节点（也是最常用的）配置如下：
 location/{ 
       proxy_pass  http://yourdomain.com; 
@@ -49,7 +49,7 @@ location/{
 
 
 code范例：
-```
+```javascript
  public final static String getIpAddress(HttpServletRequest request)  {
         // 获取请求主机IP地址,如果通过代理进来，则透过防火墙获取真实IP地址
 
