@@ -15,7 +15,7 @@ HTTP_CLIENT_IP
 {% endhighlight %}
 
 存在多种的网络架构，如Nginx+Resin , Apache+WebLogic，Squid+Nginx等，在这些不同的网络架构中，作为前端的服务器会使用不同的报文头字段来传递这个信息。以下就简单描述一下：
-```
+{% highlight bash linenos %}
 其中使用nginx作为前端节点（也是最常用的）配置如下：
 location/{ 
       proxy_pass  http://yourdomain.com; 
@@ -23,7 +23,7 @@ location/{
       proxy_set_header   X-Real-IP     $remote_addr; 
       proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for; 
        }
-```
+{% endhighlight %}
 
  - X-Forwarded-For
 背景：
@@ -49,7 +49,7 @@ location/{
 
 
 code范例：
-```
+{% highlight bash linenos %}
  public final static String getIpAddress(HttpServletRequest request)  {
         // 获取请求主机IP地址,如果通过代理进来，则透过防火墙获取真实IP地址
 
@@ -84,7 +84,7 @@ code范例：
         }
         return ip;
     }
-```
+{% endhighlight %}
 
 
 参考资料：[http://www.udpwork.com/item/8135.html](http://www.udpwork.com/item/8135.html)
