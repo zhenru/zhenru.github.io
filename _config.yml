@@ -53,8 +53,10 @@ baseurl: ""
 # !! You don't need to change any of the configuration flags below !!
 #
 
-markdown: Maruku
-#markdown: redcarpet
+
+markdown: redcarpet
+redcarpet:
+    extensions: ["tables"]
 highlighter: pygments
 permalink: /:title/
 
